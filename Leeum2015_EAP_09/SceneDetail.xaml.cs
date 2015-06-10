@@ -21,6 +21,9 @@ namespace Leeum2015_EAP_09
     public partial class SceneDetail : UserControl
     {
 
+        public RoutedEvent setLanguageDelegate;
+
+
         
         private int detailLang;
         private int ShowingImageNumber;

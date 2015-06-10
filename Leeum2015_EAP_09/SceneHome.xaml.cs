@@ -80,5 +80,12 @@ namespace Leeum2015_EAP_09
             _cvBaseHome.Children.Add(scn);
 
         }
+
+
+        private void setLanguage(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }
