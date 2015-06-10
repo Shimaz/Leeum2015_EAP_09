@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace Leeum2015_EAP_09
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SceneDetail.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SceneDetail : UserControl
     {
-        public MainWindow()
+        public SceneDetail()
         {
             InitializeComponent();
-
-
-
-            SceneHome scHome = new SceneHome(GlobalValues.LANG_KOR);
-            Canvas.SetTop(scHome, 0);
-            Canvas.SetLeft(scHome, 0);
-
-            _cvBase.Children.Add(scHome);
-
-
         }
     }
 }

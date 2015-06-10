@@ -16,21 +16,34 @@ using System.Windows.Shapes;
 namespace Leeum2015_EAP_09
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SceneHome.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SceneHome : UserControl
     {
-        public MainWindow()
+
+        private int lang_detail;
+
+        public SceneHome(int lang)
         {
             InitializeComponent();
 
+            this.lang_detail = lang;
+
+            InitContents(lang_detail);
+        }
+
+        private void InitContents(int lang)
+        {
 
 
-            SceneHome scHome = new SceneHome(GlobalValues.LANG_KOR);
-            Canvas.SetTop(scHome, 0);
-            Canvas.SetLeft(scHome, 0);
 
-            _cvBase.Children.Add(scHome);
+
+        }
+
+
+        private void btnClicked(object sender, RoutedEventArgs e)
+        {
+
 
 
         }
