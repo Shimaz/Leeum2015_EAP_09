@@ -11,7 +11,8 @@ namespace Leeum2015_EAP_09
         public static int LANG_KOR = 0x01;
         public static int LANG_ENG = 0x02;
 
-        
+        public static bool DIR_LEFT = false;
+        public static bool DIR_RIGHT = true;
 
 
     }

@@ -74,6 +74,8 @@ namespace Leeum2015_EAP_09
 
             SceneDetail scn = new SceneDetail(lang_home, imgNo);
 
+            scn.setLanguageEvent += new EventHandler(setLanguage);
+
             Canvas.SetTop(scn, 0);
             Canvas.SetLeft(scn, 0);
 
@@ -82,7 +84,7 @@ namespace Leeum2015_EAP_09
         }
 
 
-        private void setLanguage(object sender, RoutedEventArgs e)
+        private void setLanguage(object sender, EventArgs e)
         {
 
 
