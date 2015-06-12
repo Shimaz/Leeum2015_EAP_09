@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,19 +24,19 @@ namespace Leeum2015_EAP_09
 
         public EventHandler setLanguageEvent;
 
-
+        private SceneHome scParent;
         
         private int detailLang;
         private int ShowingImageNumber;
 
        
         private static int IMG_MAX = 17;
-        public SceneDetail(int lang, int imgNo)
+        public SceneDetail(int lang, int imgNo, SceneHome parent)
         {
             InitializeComponent();
             this.detailLang = lang;
             this.ShowingImageNumber = imgNo;
-
+            this.scParent = parent;
 
             InitContent(detailLang, ShowingImageNumber);
 
@@ -52,8 +53,8 @@ namespace Leeum2015_EAP_09
 
             _tbTmp.Text = "" + imgNo;
 
-
-
+            ImageViewer iv = new ImageViewer(ShowingImageNumber, scParent);
+            _cvImageViewer.Children.Add(iv);
             //_cvBaseDetail.Children.Add(_tbTmp);
 
 
@@ -123,6 +124,32 @@ namespace Leeum2015_EAP_09
         private void showImage(bool direction)
         {
             _tbTmp.Text = "" + ShowingImageNumber;
+
+
+            //foreach (UserControl child in _cvImageViewer.Children)
+            //{
+            //    ImageViewer tmp = (ImageViewer)child; // (ImageViewer)child;
+            //    if (!tmp.IsClosing) tmp.CloseImage(direction);
+
+            //}
+
+
+            UIElement ele = null;
+
+            for (int i = 0; i < _cvImageViewer.Children.Count; i++)
+            {
+                if (((ele = _cvImageViewer.Children[i]) is ImageViewer) && !((ImageViewer)ele).IsClosing)
+                {
+                    ((ImageViewer)ele).CloseImage(direction);
+                }
+
+
+            }
+
+            ImageViewer iv = new ImageViewer(ShowingImageNumber, direction, scParent);
+
+            _cvImageViewer.Children.Add(iv);
+
 
         }
         

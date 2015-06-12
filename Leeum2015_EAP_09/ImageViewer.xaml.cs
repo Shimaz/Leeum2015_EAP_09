@@ -20,28 +20,38 @@ namespace Leeum2015_EAP_09
     /// </summary>
     public partial class ImageViewer : UserControl
     {
-        public ImageViewer(int imgNo, bool direction)
+
+        private SceneHome scParent;
+
+        public bool IsClosing = false;
+
+        public ImageViewer(int imgNo, bool direction, SceneHome sch)
         {
 
             // next, previous image 할 때 호출
 
             InitializeComponent();
-
+            scParent = sch;
 
             InitContent();
             InitAnimation(direction);
-
+            BitmapImage img = (BitmapImage)scParent.ImageArray[imgNo];
+            _imgDetail.Source = img;
         }
 
-        public ImageViewer(int imgNo)
+        public ImageViewer(int imgNo, SceneHome sch)
         {
 
             // detail scene initialize 할 때 호출
 
             InitializeComponent();
+            scParent = sch;
 
             InitContent();
             OpenAnimation();
+
+            BitmapImage img = (BitmapImage)scParent.ImageArray[imgNo];
+            _imgDetail.Source = img;
 
         }
 
@@ -70,6 +80,8 @@ namespace Leeum2015_EAP_09
 
         public void CloseImage(bool dir)
         {
+            IsClosing = true;
+            this.Finish();
 
         }
 

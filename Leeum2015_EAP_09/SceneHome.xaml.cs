@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,13 @@ namespace Leeum2015_EAP_09
     public partial class SceneHome : UserControl
     {
 
+        public ArrayList ImageArray;
+
+
         private int lang_home;
+
+
+
 
         public SceneHome(int lang)
         {
@@ -34,6 +41,20 @@ namespace Leeum2015_EAP_09
 
         private void InitContents(int lang)
         {
+
+            ImageArray = new ArrayList();
+
+
+            for (int i = 0; i < 6; i++)
+            {
+                string str = string.Format("{0:0}", i + 1);
+                BitmapImage bbb = new BitmapImage(new Uri("pack://application:,,,/Resources/img_0" + str + ".png"));
+
+                ImageArray.Add(bbb);
+            }
+
+
+
             for (int i = 0; i < 11; i++)
             {
                 string num = string.Format("{0:00}", i + 1);
@@ -50,7 +71,7 @@ namespace Leeum2015_EAP_09
                 }
                 else
                 {
-                    Canvas.SetLeft(btn, 100 + (( i - 6) * 150));
+                    Canvas.SetLeft(btn, 100 + ((i - 6) * 150));
                     Canvas.SetTop(btn, 1600);
 
                 }
@@ -60,7 +81,7 @@ namespace Leeum2015_EAP_09
 
                 btn.Tag = 100 + i;
                 _cvBaseHome.Children.Add(btn);
-                
+
             }
 
 
@@ -72,7 +93,7 @@ namespace Leeum2015_EAP_09
         {
             int imgNo = (int)((ImageButton)sender).Tag - 100;
 
-            SceneDetail scn = new SceneDetail(lang_home, imgNo);
+            SceneDetail scn = new SceneDetail(lang_home, imgNo, this);
 
             scn.setLanguageEvent += new EventHandler(setLanguage);
 

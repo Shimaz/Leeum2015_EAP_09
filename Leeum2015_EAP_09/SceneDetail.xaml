@@ -6,6 +6,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="1920" d:DesignWidth="1080">
     <Canvas x:Name="_cvBaseDetail" Width="1080" Height="1920" Background="Black">
+        
+        <Canvas x:Name="_cvImageViewer" Width="1080" Height="1920" Background="Transparent">
+            
+        </Canvas>
+        
         <TextBlock x:Name="_tbTmp"></TextBlock>
+        
     </Canvas>
 </UserControl>

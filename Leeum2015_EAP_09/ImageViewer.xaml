@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="1280" d:DesignWidth="720">
-    <Canvas Width="720" Height="1280">
+    <Grid Width="720" Height="1280">
         <Image x:Name="_imgDetail"></Image>   
         
-    </Canvas>
+    </Grid>
 </UserControl>
